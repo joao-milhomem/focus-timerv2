@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="./js/main.js" type="module"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Focus Timer 2.0</title>
+  </head>
+  <body class="">
+    <div class="theme">
+      <button type="button" aria-label="Tema escuro" id="theme-button">
+        <i class="ph ph-moon"></i>
+        <i class="ph ph-sun"></i>
+      </button>
+    </div>
+
+    <main>
+      <div class="clock-wrapper">
+        <div class="time-wrapper">
+          <input type="number" id="minutes" aria-label="Minutos" value="25" />
+          <span>:</span>
+          <input type="number" id="seconds" aria-label="Segundos" value="00" />
+        </div>
+
+        <div class="controls">
+          <button
+            type="button"
+            class="ph ph-play-circle"
+            aria-label="Play"
+          ></button>
+
+          <button
+            type="button"
+            class="ph ph-pause-circle hide"
+            aria-label="Pausar"
+          ></button>
+
+          <button
+            type="button"
+            class="ph ph-stop-circle"
+            aria-label="Parar"
+          ></button>
+
+          <button
+            type="button"
+            class="ph ph-plus-circle"
+            aria-label="Aumentar 5 minutos"
+          ></button>
+
+          <button
+            type="button"
+            class="ph ph-minus-circle"
+            aria-label="Diminuir 5 minutos"
+          ></button>
+        </div>
+      </div>
+
+      <div class="sounds">
+        <button
+          class="ph ph-tree"
+          type="button"
+          aria-label="Som da natureza"
+        ></button>
+
+        <button
+          class="ph ph-cloud-rain"
+          type="button"
+          aria-label="Som de chuva"
+        ></button>
+
+        <button
+          class="ph ph-storefront"
+          type="button"
+          aria-label="Cafeteria"
+        ></button>
+
+        <button
+          class="ph ph-campfire"
+          type="button"
+          aria-label="Lareira"
+        ></button>
+      </div>
+    </main>
+  </body>
+</html>
