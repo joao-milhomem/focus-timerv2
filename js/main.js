@@ -1,55 +1,37 @@
-import { Controls } from "./controls.js";
-import { Sound } from "./sounds.js";
-import { Time } from "./time.js";
-import { alternateState } from "./utils.js";
+import * as audios from "./sounds.js";
+import * as el from "./elements.js";
+import * as actions from "./actions.js";
+import "./theme.js";
 
-function handlePlayButton() {
-  const { minutes, seconds } = Time.get();
+el.controls.addEventListener("click", (event) => {
+  const action = event.target.dataset["action"];
 
-  if (minutes <= 0 || seconds < 0) {
-    return alert("Digite um numero válido");
+  if (typeof event.target.dataset["action"] == "undefined") {
+    return;
   }
 
-  if (minutes > 60) {
-    return alert("Tempo máximo de 60 minutos");
+  actions[action]();
+})
+
+el.soundPanel.addEventListener("click", (event) => {
+  const currentSound = el.soundPanel.querySelector(".playing");
+  const audio = audios[event.target.dataset["sound"]];
+
+  if (event.target.dataset["sound"] == undefined) {
+    return;
   }
 
-  Controls.play();
-  alternateState();
-}
+  if (currentSound == event.target) {
+    event.target.classList.remove("playing");
+    audio.pause();
+    return;
+  }
 
-function handlePauseButton() {
-  Controls.pause();
-}
+  if (currentSound && currentSound != event.target) {
+    currentSound.classList.remove("playing");
+    audios[currentSound.dataset["sound"]].pause();
+  }
 
-function handleStopButton() {
-  Controls.stop();
-}
-
-function handleAddButton() {
-  Controls.addTime();
-}
-
-function handleMinusButton() {
-  Controls.minusTime();
-}
-
-function handleThemeButton() {
-  Controls.ToggleTheme();
-}
-
-function handleSound(e) {
-  Sound.play(e);
-}
-
-Controls.playButton.addEventListener("click", handlePlayButton);
-Controls.pauseButton.addEventListener("click", handlePauseButton);
-Controls.stopButton.addEventListener("click", handleStopButton);
-Controls.addButton.addEventListener("click", handleAddButton);
-Controls.minusButton.addEventListener("click", handleMinusButton);
-Controls.themeButton.addEventListener("click", handleThemeButton);
-
-Sound.coffeShopButton.addEventListener("click", handleSound);
-Sound.firePlaceButton.addEventListener("click", handleSound);
-Sound.rainButton.addEventListener("click", handleSound);
-Sound.forestButton.addEventListener("click", handleSound);
+  event.target.classList.add("playing");
+  audio.play();
+});

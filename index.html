@@ -13,7 +13,12 @@
   </head>
   <body class="">
     <div class="theme">
-      <button type="button" aria-label="Tema escuro" id="theme-button">
+      <button
+        type="button"
+        aria-label="Tema escuro"
+        id="theme-button"
+        data-action="toggleTheme"
+      >
         <i class="ph ph-moon"></i>
         <i class="ph ph-sun"></i>
       </button>
@@ -32,30 +37,35 @@
             type="button"
             class="ph ph-play-circle"
             aria-label="Play"
+            data-action="play"
           ></button>
 
           <button
             type="button"
             class="ph ph-pause-circle hide"
             aria-label="Pausar"
+            data-action="pause"
           ></button>
 
           <button
             type="button"
             class="ph ph-stop-circle"
             aria-label="Parar"
+            data-action="stop"
           ></button>
 
           <button
             type="button"
             class="ph ph-plus-circle"
             aria-label="Aumentar 5 minutos"
+            data-action="add"
           ></button>
 
           <button
             type="button"
             class="ph ph-minus-circle"
             aria-label="Diminuir 5 minutos"
+            data-action="subtract"
           ></button>
         </div>
       </div>
@@ -65,24 +75,28 @@
           class="ph ph-tree"
           type="button"
           aria-label="Som da natureza"
+          data-sound="forestAudio"
         ></button>
 
         <button
           class="ph ph-cloud-rain"
           type="button"
           aria-label="Som de chuva"
+          data-sound="rainAudio"
         ></button>
 
         <button
           class="ph ph-storefront"
           type="button"
           aria-label="Cafeteria"
+          data-sound="coffeShopAudio"
         ></button>
 
         <button
           class="ph ph-campfire"
           type="button"
           aria-label="Lareira"
+          data-sound="firePlaceAudio"
         ></button>
       </div>
     </main>

@@ -1,10 +1,9 @@
-export const Time = {
-  inputMinutes: document.querySelector("#minutes"),
-  inputSeconds: document.querySelector("#seconds"),
+import * as el from "./elements.js";
 
+export const Time = {
   get() {
-    const minutes = Number(this.inputMinutes.value);
-    const seconds = Number(this.inputSeconds.value);
+    const minutes = Number(el.inputMinutes.value);
+    const seconds = Number(el.inputSeconds.value);
 
     return {
       minutes,
@@ -16,12 +15,12 @@ export const Time = {
     seconds < 10 ? (seconds = `0${seconds}`) : seconds;
     minutes < 10 ? (minutes = `0${minutes}`) : minutes;
 
-    this.inputMinutes.value = minutes;
-    this.inputSeconds.value = seconds;
+    el.inputMinutes.value = minutes;
+    el.inputSeconds.value = seconds;
   },
 
   reset() {
-    this.inputMinutes.value = 25;
-    this.inputSeconds.value = `0${0}`;
+    el.inputMinutes.value = 25;
+    el.inputSeconds.value = `0${0}`;
   },
 };
